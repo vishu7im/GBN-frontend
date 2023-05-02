@@ -1,0 +1,68 @@
+* {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 100%;
+}
+
+.Header_box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-bottom: 2px solid rgb(47, 255, 28);
+  margin: 2% 10%;
+}
+
+/* clg logo  */
+
+.Logo {
+  height: 150px;
+  width: 150px;
+}
+
+.Logo img {
+  height: 100%;
+  width: 100%;
+  object-fit: contain;
+}
+.text {
+  text-transform: capitalize;
+  font-size: 1.5rem;
+}
+.heading {
+  font-weight: 800;
+}
+.clg {
+  font-weight: 500;
+}
+
+.body {
+  border: 2px solid red;
+  width: 100vw;
+}
+
+.alert_box {
+  position: fixed;
+  display: flex;
+  justify-content: center;
+  top: 20px;
+  left: 0;
+  width: 100%;
+  z-index: 9999;
+}
+.alert {
+  width: 30%;
+}
+.uploadfileform {
+  position: absolute;
+  border: 2px solid red;
+  z-index: -1;
+  margin: 0;
+  padding: 0;
+  width: 35%;
+  height: 35%;
+  opacity: 0.5;
+}

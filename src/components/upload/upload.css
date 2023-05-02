@@ -1,0 +1,46 @@
+.form {
+  width: 500px;
+  height: 200px;
+  border: 4px dashed #000000;
+}
+.upload_box {
+  display: flex;
+  justify-content: center;
+}
+.form p {
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  line-height: 170px;
+  color: #000000;
+  font-family: Arial;
+}
+.form input {
+  position: absolute;
+  z-index: -1;
+  margin: 0;
+  padding: 0;
+  width: 35%;
+  height: 35%;
+  outline: none;
+  opacity: 0.5;
+}
+.form button {
+  margin: 10px;
+  color: #fff;
+  background: #16a085;
+  border: none;
+  width: 400px;
+  height: 35px;
+  margin-left: -4px;
+  border-radius: 50px 50px;
+  border-bottom: 4px solid #117a60;
+  transition: all 0.2s ease;
+  outline: none;
+}
+.form button:hover {
+  background: #149174;
+}
+.form button:active {
+  border: 0;
+}
