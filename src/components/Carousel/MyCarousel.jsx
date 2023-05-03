@@ -4,6 +4,10 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import "./Carousel.css"; // import your custom CSS file here
 
+import slider1 from "../../Assets/slider1.jpg";
+import slider2 from "../../Assets/slider2.jpg";
+import slider3 from "../../Assets/slider3.jpg";
+
 const Carousel = () => {
   const settings = {
     dots: true,
@@ -19,22 +23,13 @@ const Carousel = () => {
     <div className="h-2/5 w-full ">
       <Slider {...settings}>
         <div>
-          <img
-            src="http://gpnilokheri.ac.in/assets/img/slide/slider3.jpg"
-            alt="Carousel "
-          />
+          <img src={slider1} alt="Carousel " />
         </div>
         <div>
-          <img
-            src="http://gpnilokheri.ac.in/assets/img/slide/slider1.jpg"
-            alt="Carousel "
-          />
+          <img src={slider2} alt="Carousel " />
         </div>
         <div>
-          <img
-            src="http://gpnilokheri.ac.in/assets/img/slide/slider2.jpg"
-            alt="Carousel "
-          />
+          <img src={slider3} alt="Carousel " />
         </div>
       </Slider>
     </div>

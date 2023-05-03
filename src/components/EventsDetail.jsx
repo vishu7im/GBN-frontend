@@ -15,16 +15,16 @@ const EventDetails = () => {
       "On August 20th, 2022, the Govt. Polytechnic, Nilokheri organized an alumni meet where former students gathered to share their experiences and memories.",
   });
 
-  useEffect(() => {
-    axios
-      .get(`/api/events/${id}`)
-      .then((response) => {
-        setEvent(response.data);
-      })
-      .catch((error) => {
-        console.error(error);
-      });
-  }, [id]);
+  // useEffect(() => {
+  //   axios
+  //     .get(`/api/events/${id}`)
+  //     .then((response) => {
+  //       setEvent(response.data);
+  //     })
+  //     .catch((error) => {
+  //       console.error(error);
+  //     });
+  // }, [id]);
 
   if (!event) {
     return <Loader />;

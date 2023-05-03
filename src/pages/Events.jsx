@@ -43,16 +43,16 @@ const Events = () => {
     },
   ]);
 
-  useEffect(() => {
-    axios
-      .get("/api/events")
-      .then((response) => {
-        setEvents(response.data);
-      })
-      .catch((error) => {
-        console.error(error);
-      });
-  }, []);
+  // useEffect(() => {
+  //   axios
+  //     .get("/api/events")
+  //     .then((response) => {
+  //       setEvents(response.data);
+  //     })
+  //     .catch((error) => {
+  //       console.error(error);
+  //     });
+  // }, []);
 
   return (
     <>
