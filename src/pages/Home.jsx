@@ -72,8 +72,7 @@ export default function Home() {
             Alumni profile
           </h1>
         </div>
-
-        <div className="flex w-full  overflow-hidden hover:overflow-x-scroll">
+        <div className="flex w-full overflow-x-scroll sm:overflow-hidden hover:overflow-x-scroll">
           {Users.map((element) => (
             <Card element={element} />
           ))}
@@ -86,7 +85,7 @@ export default function Home() {
           </h1>
         </div>
 
-        <div className="w-full overflow-hidden hover:overflow-x-scroll">
+        <div className="w-full overflow-x-scroll sm:overflow-hidden hover:overflow-x-scroll">
           <div className="flex flex-nowrap">
             {galleryImages.map((item) => {
               return (
