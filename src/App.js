@@ -18,33 +18,39 @@ import News from "./pages/News";
 import Events from "./pages/Events";
 import EventDetails from "./components/EventsDetail";
 import MeetTheDeveloper from "./pages/Admin/Devloper";
+import { AlertApi } from "./context/AlertContext";
+import Loader from "./components/Loader";
 
 function App() {
-  ReactGA.initialize(process.env.REACT_APP_GOOGLE_AN_KEY);
+  const { loder } = AlertApi();
 
   return (
     <>
-      <Router>
-        <div>
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/member" element={<Member />} />
-            <Route path="/gallery" element={<Gallery />} />
-            <Route path="/aboutUs" element={<AboutUs />} />
-            <Route path="/contactUs" element={<ContactUs />} />
-            <Route path="/*" element={<Error />} />
-            <Route path="/login" element={<Login />} />
-            <Route path="/signup" element={<SignUp />} />
-            <Route path="/admin/panel" element={<Admin />} />
-            <Route path="/admin" element={<LoginPage />} />
-            <Route path="/user/:id" element={<UserProfile />} />
-            <Route path="/news" element={<News />} />
-            <Route path="/event" element={<Events />} />
-            <Route path="/events/:id" element={<EventDetails />} />
-            <Route path="/devloper" element={<MeetTheDeveloper />} />
-          </Routes>
-        </div>
-      </Router>
+      {loder ? (
+        <Loader />
+      ) : (
+        <Router>
+          <div>
+            <Routes>
+              <Route path="/" element={<Home />} />
+              <Route path="/member" element={<Member />} />
+              <Route path="/gallery" element={<Gallery />} />
+              <Route path="/aboutUs" element={<AboutUs />} />
+              <Route path="/contactUs" element={<ContactUs />} />
+              <Route path="/*" element={<Error />} />
+              <Route path="/login" element={<Login />} />
+              <Route path="/signup" element={<SignUp />} />
+              <Route path="/admin/panel" element={<Admin />} />
+              <Route path="/admin" element={<LoginPage />} />
+              <Route path="/user/:id" element={<UserProfile />} />
+              <Route path="/news" element={<News />} />
+              <Route path="/event" element={<Events />} />
+              <Route path="/events/:id" element={<EventDetails />} />
+              <Route path="/devloper" element={<MeetTheDeveloper />} />
+            </Routes>
+          </div>
+        </Router>
+      )}
     </>
   );
 }

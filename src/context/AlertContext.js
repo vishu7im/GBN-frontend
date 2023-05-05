@@ -5,6 +5,7 @@ export const AlertContext = createContext();
 
 export const AlertProvider = ({ children }) => {
   const [alert, setAlert] = React.useState(null);
+  const [loder, setLoder] = React.useState(false);
 
   const handleClose = (event, reason) => {
     if (reason === "clickaway") {
@@ -19,7 +20,7 @@ export const AlertProvider = ({ children }) => {
   }, [alert]);
 
   return (
-    <AlertContext.Provider value={{ setAlert }}>
+    <AlertContext.Provider value={{ setAlert, setLoder, loder }}>
       {alert && (
         <div className="alert_box">
           <div className="alert">

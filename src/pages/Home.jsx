@@ -7,8 +7,10 @@ import Carousel from "../components/Carousel/MyCarousel";
 import NewsAndEvent from "../components/NewsRoom";
 import GalleryCard from "../components/GalleryCard";
 import DeviceCounter from "../components/DeviceCounter";
+import { AlertApi } from "../context/AlertContext";
 
 export default function Home() {
+  const { setLoder } = AlertApi();
   const [Users, setUsers] = useState([]);
   const [galleryImages, setGalleryImages] = useState([]);
 

@@ -1,11 +1,13 @@
 .form {
-  width: 500px;
+  width: 400px;
   height: 200px;
   border: 4px dashed #000000;
 }
 .upload_box {
   display: flex;
   justify-content: center;
+  flex-direction: column;
+  align-items: center;
 }
 .form p {
   width: 100%;
@@ -17,13 +19,12 @@
 }
 .form input {
   position: absolute;
-  z-index: -1;
+  opacity: 0.5;
   margin: 0;
   padding: 0;
   width: 35%;
   height: 35%;
   outline: none;
-  opacity: 0.5;
 }
 .form button {
   margin: 10px;
