@@ -10,6 +10,7 @@ import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import LogoutIcon from "@mui/icons-material/Logout";
 import axios from "axios";
+import GalleryScroll from "../../components/upload/GalleryScroll";
 
 export default function Admin() {
   const [isOpen, setIsOpen] = useState(false);
@@ -276,6 +277,7 @@ export default function Admin() {
                     <h1 className="Upload_heading">Gallery</h1>
                   </div>
                   <Upload />
+                  <GalleryScroll />
                 </div>
               </div>
             </div>

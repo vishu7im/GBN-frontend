@@ -22,37 +22,16 @@ export default function Home() {
     } catch (error) {}
   };
 
+  const fetchgallery = async () => {
+    let URL = `${process.env.REACT_APP_API_KEY}/admin/gallery`;
+    try {
+      const response = await axios.get(URL);
+      setGalleryImages(response.data.data);
+    } catch (error) {}
+  };
   useEffect(() => {
     fetchuser();
-    setGalleryImages([
-      {
-        image: "http://gpnilokheri.ac.in/assets/img/g1.jpg",
-        title: "Student at work ",
-      },
-
-      {
-        image: "http://gpnilokheri.ac.in/assets/img/visit23_1.png",
-        title: "Industrial Visit",
-      },
-      {
-        image: "	http://gpnilokheri.ac.in/assets/img/placement23_1.png",
-        title: "Campus Drives",
-      },
-      {
-        image: "	http://gpnilokheri.ac.in/assets/img/fancy.png",
-        title: "Co-Curricular Activities",
-      },
-
-      {
-        image: "http://gpnilokheri.ac.in/assets/img/T3.jpeg",
-        title: "Tree Plantation",
-      },
-
-      {
-        image: "	http://gpnilokheri.ac.in/assets/img/independence.png",
-        title: "Tringa Abhiyan",
-      },
-    ]);
+    fetchgallery();
   }, []);
   return (
     <>
@@ -92,8 +71,8 @@ export default function Home() {
             {galleryImages.map((item) => {
               return (
                 <GalleryCard
-                  image={item.image}
-                  title={item.title}
+                  image={item.Document}
+                  title={item.Title}
                   key={item._id}
                 />
               );

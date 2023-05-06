@@ -9,7 +9,7 @@ export default function Upload() {
   const { setAlert } = AlertApi();
 
   const [input, setInput] = useState({ Document: "", Title: "" });
-  const [loder, setloder] = useState(true);
+  const [loder, setloder] = useState(false);
   const handleFileProfile = (event) => {
     const file = event.target.files[0];
     const reader = new FileReader();
@@ -24,11 +24,11 @@ export default function Upload() {
   };
 
   const handleSubmit = async () => {
-    console.log(input);
     if (!input.Document || !input.Title) {
       setAlert({ type: "warning", message: "All fileds are Required " });
       return;
     }
+    setloder(true);
     let url = `${process.env.REACT_APP_API_KEY}/admin/uploadDocument`;
     try {
       const response = await axios.post(url, input, {
@@ -42,6 +42,7 @@ export default function Upload() {
       setAlert({ type: "error", message: "somthing went wrong" });
     }
     setInput({ Document: "", Title: "" });
+    setloder(false);
   };
 
   return (
@@ -74,7 +75,7 @@ export default function Upload() {
           <div className="form">
             <input type="file" onChange={handleFileProfile} />
             <p>Drag your files here or click in this area.</p>
-            <div className="w-full flex justify-center ">
+            <div className="w-full flex z-50 justify-center ">
               <button onClick={handleSubmit}>Upload</button>
             </div>
           </div>
