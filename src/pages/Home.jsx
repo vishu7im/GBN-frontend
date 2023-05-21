@@ -7,10 +7,11 @@ import Carousel from "../components/Carousel/MyCarousel";
 import NewsAndEvent from "../components/NewsRoom";
 import GalleryCard from "../components/GalleryCard";
 import DeviceCounter from "../components/DeviceCounter";
-import { AlertApi } from "../context/AlertContext";
+import UserLoding from "../components/UserLoding";
 
 export default function Home() {
-  const { setLoder } = AlertApi();
+  const [userLoding, setUserLoding] = useState(true);
+  const [userGallery, setUserGallery] = useState(true);
   const [Users, setUsers] = useState([]);
   const [galleryImages, setGalleryImages] = useState([]);
 
@@ -19,6 +20,7 @@ export default function Home() {
     try {
       const response = await axios.get(URL);
       setUsers(response.data.data);
+      setUserLoding(false);
     } catch (error) {}
   };
 
@@ -27,6 +29,7 @@ export default function Home() {
     try {
       const response = await axios.get(URL);
       setGalleryImages(response.data.data);
+      setUserGallery(false);
     } catch (error) {}
   };
   useEffect(() => {
@@ -53,11 +56,15 @@ export default function Home() {
             Alumni profile
           </h1>
         </div>
-        <div className="flex w-full overflow-x-scroll sm:overflow-hidden hover:overflow-x-scroll">
-          {Users.map((element) => (
-            <Card element={element} />
-          ))}
-        </div>
+        {userLoding ? (
+          <UserLoding text="Alumni" />
+        ) : (
+          <div className="flex w-full overflow-x-scroll sm:overflow-hidden hover:overflow-x-scroll">
+            {Users.map((element) => (
+              <Card element={element} />
+            ))}
+          </div>
+        )}
 
         {/* gallary */}
         <div className="w-full flex my-6 justify-center">
@@ -65,20 +72,23 @@ export default function Home() {
             Gallery
           </h1>
         </div>
-
-        <div className="w-full overflow-x-scroll sm:overflow-hidden hover:overflow-x-scroll">
-          <div className="flex flex-nowrap">
-            {galleryImages.map((item) => {
-              return (
-                <GalleryCard
-                  image={item.Document}
-                  title={item.Title}
-                  key={item._id}
-                />
-              );
-            })}
+        {userGallery ? (
+          <UserLoding text="Gallery" />
+        ) : (
+          <div className="w-full overflow-x-scroll sm:overflow-hidden hover:overflow-x-scroll">
+            <div className="flex flex-nowrap">
+              {galleryImages.map((item) => {
+                return (
+                  <GalleryCard
+                    image={item.Document}
+                    title={item.Title}
+                    key={item._id}
+                  />
+                );
+              })}
+            </div>
           </div>
-        </div>
+        )}
       </div>
       <Footer />
     </>

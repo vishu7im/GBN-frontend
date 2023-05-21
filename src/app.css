@@ -66,3 +66,19 @@ html {
   height: 35%;
   opacity: 0.5;
 }
+
+@keyframes wave {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-0.25em);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+.animate-wave {
+  animation: wave 1s infinite;
+}
